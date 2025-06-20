@@ -1,0 +1,12 @@
+There are two ways to export a failed batch and really look into. By looking at the failed batch, you will understand how your entire xdm looked like when a request failed. 
+This will help you pin point to what it could have caused it. 
+
+Approach #1:
+1. Export all the failed batches for a particular data set by using the catalog batches api: https://platform.adobe.io/data/foundation/catalog/batches?dataSet=<data set id>&limit=20&orderBy=asc:id
+2. Now, take any batch id and use it to export the batch: https://platform-va7.adobe.io/data/foundation/export/batches/01JXAN25CKVAJSWSBT4W6544FT/failed
+3. Now, make a request to the location you have received: https://platform-va7.adobe.io:443/data/foundation/export/batches/<batch id>/failed?path=<path name>.ndjson
+
+Approach #2:
+1. Identify the ƒailed batch the in the AEP data set UI itself. Grab the batch it.
+2. Repeat step 2 from approach 1. https://platform-va7.adobe.io/data/foundation/export/batches/01JXAN25CKVAJSWSBT4W6544FT/failed
+3. Now, make a request to the location you have received: https://platform-va7.adobe.io:443/data/foundation/export/batches/<batch id>/failed?path=<path name>.ndjson
